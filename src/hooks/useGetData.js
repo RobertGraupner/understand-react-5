@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
-
+//  hook do pobierania danych z serwera. Nazwa custom hooka musi zaczynać się od słowa use
 export function useGetData(url) {
+	// stan przechowujący dane. Domyślnie jest to pusta tablica []
+	// stan ten tworzy się w komponencie, który wykorzystuje ten hook. Stany są lokalne dla komponentów
 	const [data, setData] = useState([]);
 	const [error, setError] = useState(null);
 
@@ -30,6 +32,6 @@ export function useGetData(url) {
 			isCancelled = true;
 		};
 	}, [url]);
-
+	// zwracamy tablicę z danymi i błędem
 	return [data, error];
 }
